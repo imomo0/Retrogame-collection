@@ -7,4 +7,4 @@ const game = new Scema({
     realeas_date: {type: String}
 });
 
-module.export = mongoose.model('Game', game);
+module.exports = mongoose.model('Game', game);
