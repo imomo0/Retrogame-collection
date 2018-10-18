@@ -1,0 +1,29 @@
+{
+  "name": "retrogame-collection",
+  "version": "1.0.0",
+  "description": "Dette er en app for retrogame collections",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imomo0/Retrogame-collection.git"
+  },
+  "keywords": [
+    "retrogame",
+    "games"
+  ],
+  "author": "Kjell-Ivar Kvalvik Johansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imomo0/Retrogame-collection/issues"
+  },
+  "homepage": "https://github.com/imomo0/Retrogame-collection#readme"
+}
