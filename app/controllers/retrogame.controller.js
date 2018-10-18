@@ -1,7 +1,14 @@
 const Game = require('../models/retrogame.model.js');
 
 exports.create = (req,res) => {
-    console.log(req.body.id);
+    const game = new Game(req.body);
+    game.save()
+    .then(game => {
+        res.json('Game added');
+    })
+    .catch(err => {
+        res.status(400).send("unable to add game");
+    })
     res.status(200).send({message: "Create called"});
 };
 
