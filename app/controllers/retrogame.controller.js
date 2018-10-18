@@ -1,7 +1,7 @@
 const Game = require('../models/retrogame.model.js');
 
 exports.create = (req,res) => {
-    console.log(req);
+    console.log(req.body.id);
     res.status(200).send({message: "Create called"});
 };
 
