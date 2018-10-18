@@ -3,6 +3,8 @@ let app = express();
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 
+require('./app/routes/retrogame.routes.js')(app);
+
 mongoose.connect(process.env.MONGODB_URI, (err) =>{
     if(err){
         console.log(err);
@@ -16,7 +18,7 @@ app.use(bodyParser.json());
 let port = process.env.PORT || 3000;
 
 app.get('/', (req,res)=>{
-    res.json({"message": "Welcome to retrogame api David"})
+    res.json({"message": "Welcome to retrogame api"})
 });
 
 app.listen(port);
