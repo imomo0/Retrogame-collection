@@ -17,5 +17,5 @@ exports.update = (req,res) => {
 };
 
 exports.delete = (req,res) => {
-    res.status(200).send({essage: "delete called"});
+    res.status(200).send({message: "delete called"});
 };
