@@ -20,7 +20,14 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req,res) => {
-    res.status(200).send({message: "findOne called"});
+    Game.findById(req.params.id)
+    .then(game => {
+        if(!game) return res.status(404).send({message: "Found no game with id: " + req.params.id});
+        res.send(game);
+    })
+    .catch(err => {
+        res.status(400).send({message: "Error: " + err.message});
+    })
 };
 
 exports.update = (req,res) => {
