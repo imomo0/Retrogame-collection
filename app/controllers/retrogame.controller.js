@@ -1,6 +1,7 @@
 const Game = require('../models/retrogame.model.js');
 
 exports.create = (req,res) => {
+    console.log(req.body);
     const game = new Game(req.body);
     game.save()
     .then(data => {
