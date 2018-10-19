@@ -31,12 +31,15 @@ exports.findOne = (req,res) => {
 };
 
 exports.update = (req,res) => {
-    res.status(200).send({message: "update called"});
+    Game.findOneAndUpdate({_id: req.params.id}, {$set: req.body}, {new: true}, (err, data) => {
+        if(err) return res.status(404).send({message: "Error: " + err.message});
+        res.status(200).send({status: "Updated", object: data});
+    })
 };
 
 exports.delete = (req,res) => {
     Game.findOneAndDelete({_id: req.params.id}, (err, data) => {
-        if(err) return res.status(404).send({message: "Could not find record"})
+        if(err) return res.status(404).send({message: "Could not find record"});
         res.status(200).send({status: "Deleted", object: data});
     });
 };
