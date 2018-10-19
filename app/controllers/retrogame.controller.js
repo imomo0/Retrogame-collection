@@ -35,5 +35,8 @@ exports.update = (req,res) => {
 };
 
 exports.delete = (req,res) => {
-    res.status(200).send({message: "delete called"});
+    Game.deleteOne({_id: req.params.id}, function (err) {
+        if(err) return res.status(404).send({message: "Could not find record"})
+        res.status(200).send("Deleted record with ID: " + req.params.id);
+    });
 };
