@@ -13,7 +13,10 @@ exports.create = (req,res) => {
 };
 
 exports.findAll = (req, res) => {
-    res.status(200).send({message: "findAll called"});
+    Game.find((err, games)=>{
+        if(err) return res.status(100).send({message: "No games :("});
+        res.status(200).send(games);
+    });
 };
 
 exports.findOne = (req,res) => {
