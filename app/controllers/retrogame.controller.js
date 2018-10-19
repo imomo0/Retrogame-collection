@@ -3,8 +3,8 @@ const Game = require('../models/retrogame.model.js');
 exports.create = (req,res) => {
     const game = new Game(req.body);
     game.save()
-    .then(game => {
-        return res.send(game);
+    .then(data => {
+        return res.send(data);
     })
     .catch(err => {
         res.status(400).send("Error: " + err.message);
