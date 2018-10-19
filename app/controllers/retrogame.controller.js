@@ -4,12 +4,11 @@ exports.create = (req,res) => {
     const game = new Game(req.body);
     game.save()
     .then(game => {
-        res.json('Game added');
+        return res.send(game);
     })
     .catch(err => {
-        res.status(400).send("unable to add game");
+        res.status(400).send("Error: " + err.message);
     })
-    res.status(200).send({message: "Create called"});
 };
 
 exports.findAll = (req, res) => {

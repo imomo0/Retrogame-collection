@@ -3,17 +3,18 @@ let app = express();
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 
-require('./app/routes/retrogame.routes.js')(app);
-
 mongoose.connect(process.env.MONGODB_URI, (err) =>{
     if(err){
         console.log(err);
         process.exit(1);
     }
 });
+mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+require('./app/routes/retrogame.routes.js')(app);
 
 let port = process.env.PORT || 3000;
 
