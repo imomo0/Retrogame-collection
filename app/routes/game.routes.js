@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const games = require('../controllers/retrogame.controller.js');
+    const games = require('../controllers/game.controller.js');
 
     // Creat a new game
     app.post('/games', games.create);

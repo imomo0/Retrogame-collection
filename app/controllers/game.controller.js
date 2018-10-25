@@ -1,4 +1,4 @@
-const Game = require('../models/retrogame.model.js');
+const Game = require('../models/game.model.js');
 
 exports.create = (req,res) => {
     console.log(req.body);
