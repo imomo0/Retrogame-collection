@@ -19,7 +19,14 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findOne = (req,res) => {
+exports.findByConsole = (req, res) => {
+    Game.find({console: "/"+req.params.console+"/"},(err, games)=>{
+        if(err) return res.status(100).send({message: "No games :("});
+        res.status(200).send(games);
+    });
+};
+
+exports.findOneById = (req,res) => {
     Game.findById(req.params.id)
     .then(game => {
         if(!game) return res.status(404).send({message: "Found no game with id: " + req.params.id});
