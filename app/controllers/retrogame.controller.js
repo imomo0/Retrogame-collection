@@ -20,13 +20,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findGamesByPlatform = (req, res) => {
-    if(req.params.platform === '') {
-        Game.find((err, games)=>{
-            if(err) return res.status(100).send({message: "No games :("});
-            return res.status(200).send(games);
-        });
-    }
-    Game.find({platform: '/'+req.params.platform+'/'},(err, games)=>{
+    Game.find({platform: req.params.platform},(err, games)=>{
         if(err) return res.status(100).send({message: "No games :("});
         return res.status(200).send(games);
     });
