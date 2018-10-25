@@ -20,7 +20,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findByConsole = (req, res) => {
-    Game.find({console: "/"+req.params.console+"/"},(err, games)=>{
+    Game.find({console: req.params.console},(err, games)=>{
         if(err) return res.status(100).send({message: "No games :("});
         res.status(200).send(games);
     });
