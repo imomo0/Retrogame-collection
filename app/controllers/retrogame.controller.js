@@ -19,13 +19,6 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findGamesByPlatform = (req, res) => {
-    Game.find({platform: req.params.platform},(err, games)=>{
-        if(err) return res.status(100).send({message: "No games :("});
-        return res.status(200).send(games);
-    });
-};
-
 exports.findOneGameById = (req,res) => {
     Game.findById(req.params.id)
     .then(game => {
@@ -35,6 +28,13 @@ exports.findOneGameById = (req,res) => {
     .catch(err => {
         res.status(400).send({message: "Error: " + err.message});
     })
+};
+
+exports.findGamesByPlatform = (req, res) => {
+    Game.find({platform: req.params.platform},(err, games)=>{
+        if(err) return res.status(100).send({message: "No games :("});
+        return res.status(200).send(games);
+    });
 };
 
 exports.update = (req,res) => {
