@@ -7,9 +7,11 @@ module.exports = (app) => {
     // Retrive all games
     app.get('/games', games.findAll);
 
-    // Retrive one game by ID
+    // Retrive game by ID
     app.get('/games/:id', games.findOneById)
-    app.get('/games/Console/:console', games.findByConsole)
+
+    // Retrive games by console
+    app.get('/consoles/:console', games.findByConsole)
 
     // Update one game by ID
     app.put('/games/:id', games.update);
