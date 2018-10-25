@@ -19,14 +19,20 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findByPlatform = (req, res) => {
+exports.findGamesByPlatform = (req, res) => {
+    if(req.params.platform === '') {
+        Game.find((err, games)=>{
+            if(err) return res.status(100).send({message: "No games :("});
+            return res.status(200).send(games);
+        });
+    }
     Game.find({platform: req.params.platform},(err, games)=>{
         if(err) return res.status(100).send({message: "No games :("});
-        res.status(200).send(games);
+        return res.status(200).send(games);
     });
 };
 
-exports.findOneById = (req,res) => {
+exports.findOneGameById = (req,res) => {
     Game.findById(req.params.id)
     .then(game => {
         if(!game) return res.status(404).send({message: "Found no game with id: " + req.params.id});

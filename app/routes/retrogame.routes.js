@@ -9,10 +9,10 @@ module.exports = (app) => {
     app.get('/games', games.findAll);
 
     // Retrive game by ID
-    app.get('/games/:id', games.findOneById)
+    app.get('/game/:id', games.findOneGameById)
 
     // Retrive games by console
-    app.get('/platform/:platform', games.findByPlatform)
+    app.get('/platform/:platform', games.findGamesByPlatform)
 
     /// PUT COMMANDS ----------------------
     // Update one game by ID
