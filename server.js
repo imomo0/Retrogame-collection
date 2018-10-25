@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-require('./app/routes/retrogame.routes.js')(app);
+require('./app/routes/game.routes.js')(app);
 
 let port = process.env.PORT || 3000;
 
